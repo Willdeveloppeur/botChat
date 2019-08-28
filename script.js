@@ -22,7 +22,7 @@ function getAnswer(form) {
 
 
 function botAnswer() {
-    if (question === "bonjour" || question === "hello" || question === "hey" || question === "hi" || question === "coucou"  ) {
+    if (question === "bonjour" || question === "hello" || question === "hey" || question === "hi" || question === "coucou") {
         botName();
         node = document.createElement("DIV");
         var textnode = document.createTextNode(answer);
@@ -31,7 +31,7 @@ function botAnswer() {
         timeSet();
         node.className = "rep";
         document.getElementById("msg").scrollTop = document.getElementById('msg').scrollHeight;
-    } else if (question === "ca va ?" || question === "la forme ?" || question === "ca farte?" || question === "roots?"  ) {
+    } else if (question === "ca va ?" || question === "la forme ?" || question === "ca farte?" || question === "roots?") {
         botName();
         node = document.createElement("DIV");
         var textnode = document.createTextNode(fine);
@@ -91,20 +91,22 @@ function userName() {
     node3.className = "userName";
 }
 
-function afficher_cacher(DIV)
-{
-    if(document.getElementById(msg).style.visibility=="hidden")
-    {
-        document.getElementById(msg).style.visibility="visible";
-        document.getElementById('button_'+msg).innerHTML='Cacher le texte';
-    }
-    else
-    {
-        document.getElementById(msg).style.visibility="hidden";
-        document.getElementById('button_'+msg).innerHTML='Afficher le texte';
+bascule();
+function bascule() {
+    var etat = document.getElementById('chatbot').style.display;
+    var boutton = document.getElementById('bouton');
+    boutton.addEventListener('click', bascule);
+    if (etat == 'none') {
+
+        document.getElementById('chatbot').style.display = 'block';
+        boutton.value = "C'est tout bon !";
+    } else {
+        document.getElementById('chatbot').style.display = 'none';
+        boutton.value = 'Aide';
     }
     return true;
 }
+
 
 
     // function botAnswer(){
