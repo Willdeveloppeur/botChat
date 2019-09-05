@@ -4,7 +4,7 @@ var answer = "Hello !";
 var notText = "Je ne comprends pas votre question";
 var fine = "plutot bien et vous ?";
 var question = form.elements['question'].value;
-
+var welcomeNew = " Bonjour! Je suis le Bot Simplon. Que puis-je pour vous ?";
 function getAnswer(form) {
     userName();
     question = form.elements['question'].value.toLowerCase();
@@ -97,7 +97,7 @@ function bascule() {
     var boutton = document.getElementById('bouton');
     boutton.addEventListener('click', bascule);
     if (etat == 'none') {
-
+        setTimeout(welcome, 3000);
         document.getElementById('chatbot').style.display = 'block';
         boutton.value = "C'est tout bon !";
     } else {
@@ -107,39 +107,15 @@ function bascule() {
     return true;
 }
 
+function welcome() {
+    botName();
+    node = document.createElement("DIV");
+    var textnode = document.createTextNode(welcomeNew);
+    node.appendChild(textnode);
+    document.getElementById("msg").appendChild(node);
+    timeSet();
+    node.className = "rep2";
+    document.getElementById("msg").scrollTop = document.getElementById('msg').scrollHeight;
+}
 
-
-    // function botAnswer(){
-    //    
-    // }
-
-
-//     if (question === "bonjour" || question === "hello" || question === "hey") {
-//         node = document.createElement("DIV");
-//         var textnode = document.createTextNode(answer);
-//         node.appendChild(textnode);
-//         document.getElementById("msg").appendChild(node);
-//         timeSet();
-//         node.className = "rep";
-//         document.getElementById("msg").scrollTop = document.getElementById('msg').scrollHeight;
-//     } else if (question === "ca va ?" || question === "la forme ?") {
-//         node = document.createElement("DIV");
-//         var textnode = document.createTextNode(fine);
-//         node.appendChild(textnode);
-//         document.getElementById("msg").appendChild(node);
-//         timeSet();
-//         document.getElementById("msg").appendChild(node2);
-//         node.className = "rep";
-//         document.getElementById("msg").scrollTop = document.getElementById('msg').scrollHeight;
-//     } else {
-//         node = document.createElement("DIV");
-//         var textnode = document.createTextNode(notText);
-//         node.appendChild(textnode);
-//         document.getElementById("msg").appendChild(node);
-//         timeSet();
-//         node.className = "rep2";
-//         document.getElementById("msg").scrollTop = document.getElementById('msg').scrollHeight;
-//     }
-//     return false;
-
-// }
+   
